@@ -1,0 +1,30 @@
+INTERLIS 2.4;
+
+CONTRACTED MODEL DMAVTYM_V1_0_Validierung (de) 
+AT "https://www.kgk-cgc.ch/" 
+VERSION "2024-08-10" =
+  
+IMPORTS UNQUALIFIED INTERLIS;
+IMPORTS DMAV_FixpunkteAVKategorie3_V1_0;
+
+    VIEW TOPIC FixpunkteKategorie3_Validierung = 
+    DEPENDS ON DMAV_FixpunkteAVKategorie3_V1_0.FixpunkteAVKategorie3;
+  
+        VIEW v_FixpunkteKategorie3
+            PROJECTION OF DMAV_FixpunkteAVKategorie3_V1_0.FixpunkteAVKategorie3.LFP3;
+        =
+            ALL OF LFP3;
+
+            !!@ ilivalid.msg="Hoehengometrie darf nicht gleich 0.0 sein";
+            !!@ ilivalid.msg_de="Hoehengometrie darf nicht gleich 0.0 sein";
+            !!@ ilivalid.msg_fr="Geomaltimetrie ne peut pas être égale à 0.0";
+            !!@ ilivalid.msg_it="La quota non puo' essere uguale a 0.0, in caso di non determinazione della quota lasciare il campo vuoto";
+            MANDATORY CONSTRAINT CH031151: (
+                Hoehengeometrie <> 0.0
+            );
+
+    END v_FixpunkteKategorie3;
+
+  END FixpunkteKategorie3_Validierung;
+
+END DMAVTYM_V1_0_Validierung.
