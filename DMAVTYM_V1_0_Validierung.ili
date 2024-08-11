@@ -6,6 +6,7 @@ VERSION "2024-08-10" =
   
 IMPORTS UNQUALIFIED INTERLIS;
 IMPORTS DMAV_FixpunkteAVKategorie3_V1_0;
+IMPORTS DMAV_Einzelobjekte_V1_0;
 
     VIEW TOPIC FixpunkteKategorie3_Validierung = 
     DEPENDS ON DMAV_FixpunkteAVKategorie3_V1_0.FixpunkteAVKategorie3;
@@ -23,8 +24,30 @@ IMPORTS DMAV_FixpunkteAVKategorie3_V1_0;
                 Hoehengeometrie <> 0.0
             );
 
-    END v_FixpunkteKategorie3;
+        END v_FixpunkteKategorie3;
 
-  END FixpunkteKategorie3_Validierung;
+    END FixpunkteKategorie3_Validierung;
+
+    VIEW TOPIC Einzelobjekte_Validierung = 
+    DEPENDS ON DMAV_Einzelobjekte_V1_0.Einzelobjekte;
+  
+        VIEW v_Einzelobjekte
+            PROJECTION OF DMAV_Einzelobjekte_V1_0.Einzelobjekte.Einzelobjekt;
+        =
+            ALL OF Einzelobjekt;
+
+            !!@ ilivalid.msg="Bei Art=Rinnsal muss die Geometrie in Linienelement sein";
+            !!@ ilivalid.msg_de="Bei Art=Rinnsal muss die Geometrie in Linienelement sein";
+            !!@ ilivalid.msg_fr="Pour les objets du Genre=ru, il faut définir la géométrie dans la table Element_lineaire";
+            !!@ ilivalid.msg_it="Per il genere ruscello la geometria deve essere del tipo elemento lineare";
+            MANDATORY CONSTRAINT CH051151: (
+                (Einzelobjektart == #Rinnsal) => ((objectCount(Flaechenelement) == 0) AND (objectCount(Linienelement) > 0) AND (objectCount(Punktelement) == 0))
+            );
+    
+    END v_Einzelobjekte;
+
+  END Einzelobjekte_Validierung;
+
+
 
 END DMAVTYM_V1_0_Validierung.
