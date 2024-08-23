@@ -250,7 +250,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_it="Per il genere silo_torre_gasoemetro la geometria deve essere con superficie";
             !!@ cprof="all";
             MANDATORY CONSTRAINT CH051659: (
-                (Einzelobjektart == #Silo_Turm_Gasometer) => ((objectCount(Flaechenelement) == 0) AND (objectCount(Linienelement) == 0) AND (objectCount(Punktelement) > 0))
+                (Einzelobjektart == #Silo_Turm_Gasometer) => ((objectCount(Flaechenelement) > 0) AND (objectCount(Linienelement) == 0) AND (objectCount(Punktelement) == 0))
             );
 
             !!@ ilivalid.msg="Bei Art=Landungssteg muss die Geometrie in Flaechenelement sein";
