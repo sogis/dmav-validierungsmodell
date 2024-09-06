@@ -20,12 +20,12 @@
       <ili:model>GeometryCHLV03_V2</ili:model>
       <ili:model>GeometryCHLV95_V2</ili:model>
       <ili:model>DMAVTYM_Qualitaet_V1_0</ili:model>
-      <ili:model>DMAV_FixpunkteLV_V1_0</ili:model>
+      <ili:model>DMAV_FixpunkteAVKategorie3_V1_0</ili:model>
     </ili:models>
     <ili:sender>fubar</ili:sender>
   </ili:headersection>
   <ili:datasection>
-    <DMAV_FixpunkteLV_V1_0:FixpunkteLV ili:bid="82b8d8b1-bf1c-4eaf-81c7-fcce3519adf9">
+    <DMAV_FixpunkteAVKategorie3_V1_0:FixpunkteAVKategorie3 ili:bid="82b8d8b1-bf1c-4eaf-81c7-fcce3519adf9">
       <DMAV_FixpunkteAVKategorie3_V1_0:HFP3Nachfuehrung ili:tid="34776b74-5962-43db-aa7d-d91e32009943">
         <DMAV_FixpunkteAVKategorie3_V1_0:NBIdent>BE0200000428</DMAV_FixpunkteAVKategorie3_V1_0:NBIdent>
         <DMAV_FixpunkteAVKategorie3_V1_0:Identifikator>202310033</DMAV_FixpunkteAVKategorie3_V1_0:Identifikator>
@@ -64,6 +64,6 @@
         <DMAV_FixpunkteAVKategorie3_V1_0:IstHoehenzuverlaessig>true</DMAV_FixpunkteAVKategorie3_V1_0:IstHoehenzuverlaessig>
         <DMAV_FixpunkteAVKategorie3_V1_0:Entstehung ili:ref="34776b74-5962-43db-aa7d-d91e32009943"/>
       </DMAV_FixpunkteAVKategorie3_V1_0:HFP3>
-    </DMAV_FixpunkteLV_V1_0:FixpunkteLV>
+    </DMAV_FixpunkteAVKategorie3_V1_0:FixpunkteAVKategorie3>
   </ili:datasection>
 </ili:transfer>
