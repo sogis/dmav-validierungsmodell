@@ -47,7 +47,12 @@ jobs:
       - name: Run testbed 
         working-directory: tools
         run: |
-          ./gradlew runProgram -PilivalidatorVersion=1.14.3 -Pdata=../data/Validierungsmodell -Pconfig=../model/DMAV_V1_0_Validierung.ini -Pmodeldir=../model
+          ./gradlew -i runProgram -PilivalidatorVersion=1.14.3 -Pdata=../data/Validierungsmodell -Pconfig=../model/DMAV_V1_0_Validierung.ini -Pmodeldir=../model
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: testbed.log
+          path: testbed.log
 
       # - name: Build 
       #   run: |
