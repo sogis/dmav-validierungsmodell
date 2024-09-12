@@ -53,7 +53,7 @@ jobs:
         if: success() || failure()  
         with:
           name: testbed.log
-          path: testbed.log
+          path: tools/testbed.log
 
       # - name: Build 
       #   run: |
