@@ -39,9 +39,11 @@ jobs:
           cache: 'gradle'
 
       - name: Debug 
+        working-directory: tools
         run: |
           pwd
-          ls -la 
+          ls -la
+
 
       # - name: Build 
       #   run: |
