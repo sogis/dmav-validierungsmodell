@@ -50,6 +50,7 @@ jobs:
           ./gradlew -i runProgram -PilivalidatorVersion=1.14.3 -Pdata=../data/Validierungsmodell -Pconfig=../model/DMAV_V1_0_Validierung.ini -Pmodeldir=../model
 
       - uses: actions/upload-artifact@v4
+        if: success() || failure()  
         with:
           name: testbed.log
           path: testbed.log
