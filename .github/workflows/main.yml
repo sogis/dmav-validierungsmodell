@@ -44,7 +44,7 @@ jobs:
           pwd
           ls -la
 
-      - name: Debug 
+      - name: Run testbed 
         working-directory: tools
         run: |
           ./gradlew runProgram -PilivalidatorVersion=1.14.3 -Pdata=../data/Validierungsmodell -Pconfig=../model/DMAV_V1_0_Validierung.ini -Pmodeldir=../model
